@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECON 3056 — Exam Study Guide 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg2: #161b27;
+    --bg3: #1e2537;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: rgba(201,168,76,0.15);
+    --cream: #f0e8d8;
+    --text: #d4cfc6;
+    --text-dim: #8a8580;
+    --blue: #5b8dd9;
+    --blue-dim: rgba(91,141,217,0.12);
+    --green: #5cb88a;
+    --green-dim: rgba(92,184,138,0.12);
+    --red: #e07070;
+    --red-dim: rgba(224,112,112,0.12);
+    --purple: #a078d4;
+    --purple-dim: rgba(160,120,212,0.12);
+    --border: rgba(201,168,76,0.2);
+    --border-soft: rgba(255,255,255,0.07);
+    --radius: 12px;
+    --shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0a0d15 0%, #131826 50%, #0f1520 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 30%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(91,141,217,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 30px;
+    max-width: 640px;
+  }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill {
+    background: var(--bg3);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .pill strong { color: var(--gold-light); }
+
+  /* ── NAV ── */
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,17,23,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 0 40px;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-btn:hover { color: var(--cream); border-bottom-color: var(--gold-dim); }
+  .nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── LAYOUT ── */
+  .main { max-width: 1100px; margin: 0 auto; padding: 50px 40px 100px; }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 80px; }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+  .tag-high { background: rgba(224,112,112,0.18); color: var(--red); border: 1px solid rgba(224,112,112,0.3); }
+  .tag-very-high { background: rgba(201,168,76,0.18); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .tag-medium { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(91,141,217,0.3); }
+  .tag-low { background: rgba(138,133,128,0.15); color: var(--text-dim); border: 1px solid rgba(138,133,128,0.25); }
+
+  /* ── LAST YEAR BANNER ── */
+  .last-year-banner {
+    background: rgba(138,133,128,0.08);
+    border: 1px dashed rgba(138,133,128,0.3);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .last-year-banner strong { color: var(--text); }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 22px;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title .icon {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .icon-gold { background: var(--gold-dim); }
+  .icon-blue { background: var(--blue-dim); }
+  .icon-green { background: var(--green-dim); }
+  .icon-red { background: var(--red-dim); }
+  .icon-purple { background: var(--purple-dim); }
+
+  /* ── DEFINITION ── */
+  .def {
+    background: var(--bg3);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  .def strong { color: var(--gold-light); }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight {
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .highlight-gold { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); }
+  .highlight-blue { background: var(--blue-dim); border: 1px solid rgba(91,141,217,0.25); }
+  .highlight-green { background: var(--green-dim); border: 1px solid rgba(92,184,138,0.25); }
+  .highlight-red { background: var(--red-dim); border: 1px solid rgba(224,112,112,0.25); }
+  .highlight-purple { background: var(--purple-dim); border: 1px solid rgba(160,120,212,0.25); }
+
+  /* ── FORMULA ── */
+  .formula-box {
+    background: #0a0d15;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 18px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--gold-light);
+    overflow-x: auto;
+    line-height: 2;
+  }
+  .formula-box .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    font-style: normal;
+  }
+
+  /* ── WORKED EXAMPLE ── */
+  .worked-example {
+    background: #0c1020;
+    border: 1px solid rgba(91,141,217,0.25);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .we-header {
+    background: linear-gradient(135deg, rgba(91,141,217,0.15), rgba(91,141,217,0.05));
+    border-bottom: 1px solid rgba(91,141,217,0.2);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .we-badge {
+    background: var(--blue);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .we-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--cream);
+    font-size: 1rem;
+  }
+  .we-body { padding: 24px; }
+
+  /* ── STEP ── */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 18px; position: relative; }
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 38px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-soft);
+  }
+  .step-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .step-content {
+    padding-bottom: 28px;
+    flex: 1;
+  }
+  .step-label {
+    font-weight: 600;
+    color: var(--cream);
+    font-size: 14.5px;
+    margin-bottom: 8px;
+  }
+  .step-body { font-size: 14px; color: var(--text); }
+
+  /* ── CASH FLOW TABLE ── */
+  .cf-table-wrap { overflow-x: auto; margin: 16px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  th {
+    background: var(--bg3);
+    color: var(--gold-light);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 14px;
+    text-align: center;
+    border: 1px solid var(--border-soft);
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  td {
+    padding: 9px 14px;
+    text-align: center;
+    border: 1px solid var(--border-soft);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .td-highlight { color: var(--gold-light) !important; font-weight: 500; }
+  .td-positive { color: var(--green) !important; }
+  .td-negative { color: var(--red) !important; }
+  .td-total { color: var(--cream) !important; font-weight: 600; background: rgba(201,168,76,0.06) !important; }
+
+  /* ── VISUAL TIMELINE ── */
+  .timeline {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    margin: 24px 0;
+    position: relative;
+    padding-bottom: 30px;
+  }
+  .tl-line {
+    position: absolute;
+    bottom: 30px;
+    left: 0; right: 0;
+    height: 2px;
+    background: var(--border);
+  }
+  .tl-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 60px;
+  }
+  .tl-bar-wrap {
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .tl-bar {
+    width: 28px;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+  }
+  .tl-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    white-space: nowrap;
+  }
+  .tl-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    position: relative;
+    z-index: 2;
+    border: 2px solid var(--bg2);
+  }
+  .tl-label {
+    position: absolute;
+    bottom: 0;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  /* ── COMPARE GRID ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card {
+    background: var(--bg3);
+    border-radius: 8px;
+    padding: 18px;
+    border: 1px solid var(--border-soft);
+  }
+  .compare-card h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── LIST ── */
+  .styled-list { list-style: none; padding: 0; }
+  .styled-list li {
+    padding: 7px 0 7px 22px;
+    position: relative;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .styled-list li:last-child { border-bottom: none; }
+  .styled-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 8px;
+    top: 12px;
+  }
+
+  /* ── DECISION MATRIX TABLE ── */
+  .matrix-container { margin: 20px 0; }
+  .matrix-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+
+  /* ── KEY RULE BOX ── */
+  .rule-box {
+    background: var(--gold-dim);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .rule-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .rule-text { font-size: 14px; color: var(--cream); line-height: 1.6; }
+  .rule-text strong { color: var(--gold-light); }
+
+  /* ── PROFITABILITY BADGES ── */
+  .prof-pair {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .prof-badge {
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .prof-badge .prof-type {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .prof-abs { background: rgba(92,184,138,0.1); border: 1px solid rgba(92,184,138,0.3); }
+  .prof-abs .prof-type { color: var(--green); }
+  .prof-rel { background: var(--blue-dim); border: 1px solid rgba(91,141,217,0.3); }
+  .prof-rel .prof-type { color: var(--blue); }
+
+  /* ── SENSITIVITY VISUAL ── */
+  .sensitivity-bar-wrap { margin: 20px 0; }
+  .sens-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .sens-label { font-size: 13px; color: var(--text); width: 130px; flex-shrink: 0; }
+  .sens-track {
+    flex: 1;
+    height: 22px;
+    background: var(--bg3);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .sens-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .sens-impact { font-size: 12px; color: var(--text-dim); width: 80px; text-align: right; font-family: 'JetBrains Mono', monospace; }
+
+  /* ── CBA STEPS ── */
+  .cba-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+  @media (max-width: 700px) { .cba-steps { grid-template-columns: 1fr 1fr; } }
+  .cba-step {
+    background: var(--bg3);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cba-step::before {
+    content: attr(data-n);
+    position: absolute;
+    bottom: -10px; right: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: rgba(201,168,76,0.07);
+    line-height: 1;
+  }
+  .cba-step-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .cba-step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .cba-step-desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; }
+
+  /* ── PERSPECTIVES ── */
+  .perspectives { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  @media (max-width: 700px) { .perspectives { grid-template-columns: 1fr; } }
+  .perspective-card {
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid;
+  }
+  .persp-guardian { background: rgba(224,112,112,0.07); border-color: rgba(224,112,112,0.25); }
+  .persp-spender { background: rgba(91,141,217,0.07); border-color: rgba(91,141,217,0.25); }
+  .persp-society { background: rgba(92,184,138,0.07); border-color: rgba(92,184,138,0.25); }
+  .persp-icon { font-size: 24px; margin-bottom: 8px; }
+  .persp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+  .persp-list { list-style: none; padding: 0; }
+  .persp-list li {
+    font-size: 12.5px;
+    color: var(--text);
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border-soft);
+    line-height: 1.5;
+  }
+  .persp-list li:last-child { border: none; }
+
+  /* ── EXAM ALERT ── */
+  .exam-alert {
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .exam-alert-icon { font-size: 22px; flex-shrink: 0; }
+  .exam-alert-text { font-size: 14px; line-height: 1.7; }
+  .exam-alert-text strong { color: var(--gold-light); }
+
+  /* ── NPV VISUAL ── */
+  .npv-visual {
+    background: var(--bg3);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .npv-timeline {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    min-width: 520px;
+  }
+  .npv-period {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .npv-period:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 14px;
+    z-index: 2;
+  }
+  .npv-t { font-size: 11px; color: var(--text-dim); font-weight: 600; letter-spacing: 1px; margin-bottom: 8px; }
+  .npv-cf {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-align: center;
+    width: 85%;
+    margin-bottom: 6px;
+  }
+  .npv-cf.outflow { border-color: rgba(224,112,112,0.4); color: var(--red); background: var(--red-dim); }
+  .npv-cf.inflow { border-color: rgba(92,184,138,0.4); color: var(--green); background: var(--green-dim); }
+  .npv-cf.lv { border-color: rgba(91,141,217,0.4); color: var(--blue); background: var(--blue-dim); }
+  .npv-disc { font-size: 10px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
+
+  /* ── SCROLL ANIMATION ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border-soft);
+    padding: 30px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .footer span { color: var(--gold); }
+
+  /* ── MISC ── */
+  p { margin-bottom: 12px; font-size: 14.5px; }
+  h3 { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 1.05rem; margin: 20px 0 10px; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .gold { color: var(--gold-light); }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  .blue { color: var(--blue); }
+  .divider { height: 1px; background: var(--border-soft); margin: 24px 0; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">ECON 3056 · Project Evaluation · UWI St. Augustine</div>
+    <h1>Your <span>Targeted</span> Exam<br>Study Guide — 2026</h1>
+    <p class="hero-sub">Built around the no-repeat rule. Everything here is fair game for May 24th. Topics already examined in 2025 have been removed.</p>
+    <div class="hero-pills">
+      <div class="pill">📅 Exam: <strong>May 24, 2026 · 1:00 PM</strong></div>
+      <div class="pill">✍️ Answer: <strong>Any 3 of 5 questions</strong></div>
+      <div class="pill">⏱️ Duration: <strong>2 hours</strong></div>
+      <div class="pill">🎯 2 questions from: <strong>Lecture 3</strong></div>
+      <div class="pill">📐 Calculator: <strong>Required</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="scrollToSection('lec1')">Lecture 1 · Cash Flows</button>
+    <button class="nav-btn" onclick="scrollToSection('lec3')">Lecture 3 · DCF Methods ★★</button>
+    <button class="nav-btn" onclick="scrollToSection('lec5')">Lecture 5 · Risk & Sensitivity</button>
+    <button class="nav-btn" onclick="scrollToSection('lec9')">Lecture 9 · CBA</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- EXAM CONTEXT -->
+  <div class="exam-alert fade-in">
+    <div class="exam-alert-icon">🎓</div>
+    <div class="exam-alert-text">
+      <strong>How this guide was built:</strong> Last year's paper examined — goal of the firm, three financial decisions, capital budgeting, investment project types, capital vs. operating cash flows, tangible vs. intangible assets, asset expansion vs. replacement, mandatory vs. discretionary investments, compounding & discounting basics, PV/FV calculations, decision trees, and simulation. <strong>None of those are in here.</strong> What remains is what's still on the table.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- LECTURE 1 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="section fade-in" id="lec1">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div>
+        <div class="section-title">Cash Flow Principles &amp; Relevant Costs</div>
+        <div class="section-tag tag-medium">Lecture 1 · 1 Question Expected</div>
+      </div>
+    </div>
+
+    <div class="exam-alert" style="background:rgba(91,141,217,0.07); border-color:rgba(91,141,217,0.3);">
+      <div class="exam-alert-icon">💡</div>
+      <div class="exam-alert-text">The "no repeat" rule means <strong>no repeat of the exact same question</strong>, not that entire topics are off-limits. Last year's Q1 and Q4 covered most of Lecture 1 — those specific subtopics are lower priority, but a different framing of the same material is still possible. The section below is split accordingly: <strong>high-priority untouched material first</strong>, then the lower-priority content that appeared last year (clearly flagged).</div>
+    </div>
+
+    <!-- Relevant Cash Flows -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-gold">💰</div>What Are Relevant Cash Flows?</div>
+      <div class="def">
+        A <strong>relevant cash flow</strong> is one that will <em>change as a direct result</em> of the decision about a project — the difference in the firm's cash flows <em>with</em> the project versus <em>without</em> it.
+      </div>
+      <p>Two golden rules determine relevance:</p>
+      <ul class="styled-list">
+        <li><strong>Future-oriented:</strong> A cash flow must occur in the future to be relevant. Anything already spent is irrelevant.</li>
+        <li><strong>Incremental:</strong> Only changes caused directly by the project count. Costs that stay the same regardless are not relevant.</li>
+      </ul>
+      <div class="highlight highlight-red" style="margin-top:14px;">
+        <strong style="color:var(--red);">⚠️ Sunk Costs are NEVER relevant.</strong> Money already spent cannot be recovered and must be ignored in project decisions, no matter how large it was.
+      </div>
+    </div>
+
+    <!-- 3 Principles -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-gold">📐</div>The 3 Guiding Principles — Learn These Cold</div>
+
+      <h3>① The Stand-Alone (Incremental) Principle</h3>
+      <div class="def">
+        Evaluate the project <strong>purely on its own merits</strong>, in isolation from any other activities. Calculate incremental cash flows by comparing the firm's total future cash flows <em>with</em> and <em>without</em> the project. Only incremental costs count.
+      </div>
+      <div class="highlight highlight-gold">
+        <strong>Example:</strong> A firm considers a new product. The salary of the CFO who will oversee it is <em>not</em> a relevant cost — he is paid regardless. But hiring a new project manager specifically for this product <em>is</em> relevant.
+      </div>
+
+      <h3>② The Indirect / Synergistic Effect</h3>
+      <div class="def">
+        Include <strong>indirect effects</strong> a project has on other parts of the firm. These can be negative (cannibalization) or positive (cross-selling). The rationale rests on the opportunity cost principle.
+      </div>
+      <div class="highlight highlight-gold">
+        <strong>Classic Example (from class):</strong> A car maker introduces model "Mako," a substitute for existing model "Raptor." Expected Raptor sales drop by $25M over the project's life. This <em>must</em> be included as a cash outflow — it's a real cost of the Mako project.
+      </div>
+
+      <h3>③ The Opportunity Cost Principle</h3>
+      <div class="def">
+        Resources have value measured by their <strong>best forgone alternative use</strong>. Even when no cash changes hands, an opportunity cost exists and must be included.
+      </div>
+      <div class="highlight highlight-gold">
+        <strong>Classic Example (from class):</strong> A firm uses its own factory space (market rental value: $29,000/yr) for a new production facility. The space isn't rented now, but could be. The $29,000/yr must be included as a cash outflow — the firm forgoes rental income by using the space.
+      </div>
+      <div class="highlight highlight-red">
+        <strong>Trick question trap:</strong> If a firm owns land and will still own it after the project, does that land have an opportunity cost? <strong>YES</strong> — if it could be sold for $500,000, that is the opportunity cost and should be included as an outlay.
+      </div>
+    </div>
+
+    <!-- Capital Budgeting Process -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-blue">🔄</div>The Capital Budgeting Process — Key Steps</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Strategic Planning</div>
+            <div class="step-body">Translates corporate goals into specific policies and priorities. Investment proposals must align with the firm's vision and long-term strategy. There is two-way feedback: a great project can change strategy.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Investment Opportunity Identification</div>
+            <div class="step-body">Projects emerge from R&D, employees, advisors, or external sources. They must align with corporate goals — though exceptional opportunities can prompt a strategy revision.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Preliminary Screening (Feasibility)</div>
+            <div class="step-body">Isolates marginal and unsound projects. Covers 8 feasibility types: Market, Technical, Resource, Cultural, Operational, Legal, Schedule, and Economic feasibility.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-label">Financial Appraisal</div>
+            <div class="step-body">Quantitative analysis — forecasting cash flows, NPV analysis, sensitivity analysis, simulation. Provides estimated addition to firm value. For public projects, also requires Social CBA.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-label">The Accept / Reject Decision</div>
+            <div class="step-body">Management weighs NPV results plus qualitative factors (environmental, social, political impact), combined with experience and judgment.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <div class="step-label">Implementation &amp; Monitoring</div>
+            <div class="step-body">Constant monitoring for bottlenecks and deviations from projected cash flows. Post-mortem of completed projects feeds back into future appraisals and strategy.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- LOW PRIORITY DIVIDER -->
+    <div style="display:flex; align-items:center; gap:14px; margin: 36px 0 24px;">
+      <div style="flex:1; height:1px; background: rgba(138,133,128,0.2);"></div>
+      <div style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-dim); white-space:nowrap;">
+        ⬇ Also in Lecture 1 — Lower Priority (subtopics asked last year, but different framing possible)
+      </div>
+      <div style="flex:1; height:1px; background: rgba(138,133,128,0.2);"></div>
+    </div>
+
+    <!-- THREE FINANCIAL DECISIONS -->
+    <div class="card fade-in">
+      <div class="last-year-banner">⚠️ Last year Q1b asked to "briefly define these three decisions" — a repeat of that exact question is unlikely, but understanding them helps answer broader questions about capital budgeting and the goal of the firm.</div>
+      <div class="card-title"><div class="icon icon-blue">🏦</div>The Three Financial Decisions of the Firm</div>
+      <p>Financial Management is concerned with three core decisions, all oriented toward the firm's goal of <strong>wealth maximisation</strong>.</p>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4 style="color:var(--gold-light);">① Investment Decision</h4>
+          <p style="font-size:13px;">How should the firm allocate capital into <strong>long-term assets</strong>? This is the Capital Budgeting decision — which projects to accept or reject. It directly determines the productive capacity and future cash flows of the firm.</p>
+        </div>
+        <div class="compare-card">
+          <h4 style="color:var(--blue);">② Financing Decision</h4>
+          <p style="font-size:13px;">How should the firm <strong>raise the funds</strong> needed for its investments? This is the debt/equity mix decision — choosing the optimal capital structure (what proportion of debt vs. equity to use).</p>
+        </div>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4 style="color:var(--green);">③ Dividend Decision</h4>
+          <p style="font-size:13px;">What proportion of earnings should be <strong>returned to shareholders</strong> as dividends vs. retained and reinvested in the firm? The dividend payout ratio affects shareholder wealth and future investment capacity.</p>
+        </div>
+        <div class="compare-card" style="background:rgba(201,168,76,0.04);">
+          <h4 style="color:var(--gold);">How Capital Budgeting Fits In</h4>
+          <p style="font-size:13px;">Capital Budgeting is the execution of the <strong>Investment Decision</strong>. It is the process by which the firm identifies, evaluates, and selects long-term investments that are expected to yield benefits beyond one year — directly serving the firm's goal of maximising shareholder wealth.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVESTMENT PROJECT TYPES -->
+    <div class="card fade-in">
+      <div class="last-year-banner">⚠️ Last year Q1c asked to "describe with examples" all three types — an identical question is unlikely, but she could ask about them in a different context (e.g., as part of a screening or budgeting question).</div>
+      <div class="card-title"><div class="icon icon-blue">🗂️</div>Investment Project Classifications</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Independent Projects</div>
+            <div class="step-body">
+              Acceptance or rejection of one project does <strong>not</strong> affect the decision on any other project. Each stands alone on its own merits.
+              <div class="highlight highlight-gold" style="margin-top:10px;"><strong>Example:</strong> A hospital decides to install a new MRI machine AND renovate its car park. These decisions are unrelated — one does not depend on the other.</div>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Mutually Exclusive Projects</div>
+            <div class="step-body">
+              Two or more projects that <strong>cannot be pursued simultaneously</strong>. Accepting one automatically eliminates the others. Common when resources are limited.
+              <div class="highlight highlight-gold" style="margin-top:10px;"><strong>Example:</strong> A company owns a plot of land and must choose between building a warehouse OR a car park. Doing one means the other is impossible. Projects A and B in the class NPV example are mutually exclusive.</div>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Contingent Projects</div>
+            <div class="step-body">
+              Acceptance or rejection depends on the decision made about <strong>one or more other projects</strong>. These may be complementary or substitutes.
+              <div class="highlight highlight-gold" style="margin-top:10px;"><strong>Example:</strong> A firm decides to purchase new manufacturing machinery (Project A). The decision to also buy a software system to run that specific machinery (Project B) is contingent on accepting Project A — Project B is useless without it.</div>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-label">Substitute Projects</div>
+            <div class="step-body">
+              The degree of success of one project is <strong>increased by rejecting</strong> another. Accepting both reduces each other's value.
+              <div class="highlight highlight-gold" style="margin-top:10px;"><strong>Example:</strong> A company opening a new branch in the same neighbourhood as an existing branch — the new branch cannibalises existing customers, making both less successful than either would be alone.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASH FLOW CATEGORIES -->
+    <div class="card fade-in">
+      <div class="last-year-banner">⚠️ Last year Q4a asked for "Capital Cash Flows vs. Operating Cash Flows" as short notes. A direct repeat is unlikely — but a question framed differently (e.g., "identify and explain the cash flow components of a project") is possible.</div>
+      <div class="card-title"><div class="icon icon-green">💵</div>Project Cash Flow Categories</div>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4 style="color:var(--gold-light);">Capital Cash Flows</h4>
+          <ul class="styled-list">
+            <li><strong>Initial Investment (I₀):</strong> The largest single outflow at t=0. Includes asset purchase/creation, installation costs, and initial working capital.</li>
+            <li><strong>Additional Investment:</strong> Upgrades or working capital increases during the project life.</li>
+            <li><strong>Terminal Cash Flows:</strong> At project end — salvage/liquidation value, recovery of working capital, asset disposal costs, environmental remediation, redundancy payments.</li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <h4 style="color:var(--blue);">Operating Cash Flows</h4>
+          <ul class="styled-list">
+            <li>Generated continuously over the project's economic life.</li>
+            <li><strong>Cash Inflows:</strong> Sales receipts, rental income, etc.</li>
+            <li><strong>Cash Outflows:</strong> Advertising, marketing, utility costs, manpower costs, raw material purchases, etc.</li>
+            <li>Net Operating Cash Flow = Inflows − Outflows for each period.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight highlight-gold" style="margin-top:4px;">
+        <strong>Key exam distinction:</strong> Capital flows are typically one-off, large, and tied to the beginning or end of the project. Operating flows are recurring throughout the project's life.
+      </div>
+    </div>
+
+    <!-- ASSET & INVESTMENT TYPES -->
+    <div class="card fade-in">
+      <div class="last-year-banner">⚠️ Last year Q4b, Q4c, Q4d covered tangible/intangible assets, asset expansion/replacement, and mandatory/discretionary investments as short notes. Different framing still possible.</div>
+      <div class="card-title"><div class="icon icon-purple">🏗️</div>Asset Types &amp; Investment Classifications</div>
+      <h3>Tangible vs. Intangible Assets</h3>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4 style="color:var(--gold-light);">Tangible Assets</h4>
+          <p style="font-size:13px;">Physical, touchable assets. Examples: property, plant, machinery, equipment, vehicles, buildings. Their value is visible and relatively straightforward to assess.</p>
+        </div>
+        <div class="compare-card">
+          <h4 style="color:var(--purple);">Intangible Assets</h4>
+          <p style="font-size:13px;">Non-physical assets. Examples: patents, trademarks, new technology, brand names, software. Also includes investments in R&D, design, development and testing — through which new products and technology are created.</p>
+        </div>
+      </div>
+
+      <h3>Asset Expansion vs. Asset Replacement</h3>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4 style="color:var(--green);">Asset Expansion</h4>
+          <p style="font-size:13px;">Investment in <strong>additional assets</strong> to expand an existing product/service line, enter a new line of business, increase sales, or reduce costs. The firm is growing its productive capacity.</p>
+          <p style="font-size:12.5px; color:var(--text-dim); margin-top:8px;"><em>Example: A bakery adding a second oven to increase production volume.</em></p>
+        </div>
+        <div class="compare-card">
+          <h4 style="color:var(--blue);">Asset Replacement</h4>
+          <p style="font-size:13px;">Retirement of an existing asset and replacement with a newer, more efficient one. Includes asset retirement, abandonment, and disposal of the old asset.</p>
+          <p style="font-size:12.5px; color:var(--text-dim); margin-top:8px;"><em>Example: A delivery company replacing aging trucks with newer, fuel-efficient models.</em></p>
+        </div>
+      </div>
+
+      <h3>Mandatory vs. Discretionary Investments</h3>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4 style="color:var(--red);">Mandatory Investments</h4>
+          <p style="font-size:13px;">Required to satisfy <strong>regulatory, health, or safety requirements</strong>. The firm has no real choice — these are essential to remain in business or legally compliant.</p>
+          <p style="font-size:12.5px; color:var(--text-dim); margin-top:8px;"><em>Example: Installing fire suppression systems to meet building codes.</em></p>
+        </div>
+        <div class="compare-card">
+          <h4 style="color:var(--gold-light);">Discretionary Investments</h4>
+          <p style="font-size:13px;">Generated by <strong>growth opportunities, competition, or cost reduction</strong>. These are the firm's strategic choices and normally represent its long-term plan.</p>
+          <p style="font-size:12.5px; color:var(--text-dim); margin-top:8px;"><em>Example: Launching a new product line, entering a foreign market, automating a production process.</em></p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- LECTURE 3 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="section fade-in" id="lec3">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div>
+        <div class="section-title">Discounted Cash Flow Methods</div>
+        <div class="section-tag tag-very-high">⭐ Lecture 3 · TWO Questions Expected — Highest Priority</div>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div class="exam-alert-icon">⭐</div>
+      <div class="exam-alert-text">
+        Your lecturer said <strong>two questions come from Lecture 3</strong>. Last year only covered basic compounding/discounting formulas and PV/FV calculations. Everything else in this lecture is untouched and fair game: <strong>NPV method in full, the Annuity method, Dynamic Payback Period, and the IRR method.</strong> The hint "understand present value inside and out" confirms NPV is a centrepiece. A <strong>full worked example</strong> is almost certain.
+      </div>
+    </div>
+
+    <!-- NPV Method -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-gold">📊</div>Net Present Value (NPV) Method</div>
+      <div class="def">
+        The NPV is the <strong>net monetary gain or loss</strong> from a project, computed by discounting all present and future cash inflows and outflows back to time 0 (the start of the project).
+      </div>
+
+      <div class="formula-box">
+        <div class="label">NPV Formula</div>
+        NPV = -I₀  +  Σ [NCFₜ × (1 + i)⁻ᵗ]  +  [LV × (1 + i)⁻ᵀ]
+        <br><br>
+        Where:<br>
+        &nbsp;&nbsp;I₀  = Initial Investment (time 0)<br>
+        &nbsp;&nbsp;NCFₜ = Net Cash Flow in period t<br>
+        &nbsp;&nbsp;i   = Discount rate (interest rate)<br>
+        &nbsp;&nbsp;t   = Time period<br>
+        &nbsp;&nbsp;T   = End of project life<br>
+        &nbsp;&nbsp;LV  = Liquidation Value at end of life<br>
+        &nbsp;&nbsp;(1+i)⁻ᵗ = Discounting factor for period t
+      </div>
+
+      <div class="prof-pair">
+        <div class="prof-badge prof-abs">
+          <div class="prof-type">Absolute Profitability</div>
+          Project is acceptable if <strong>NPV &gt; 0</strong>. A positive NPV means the project generates more than the cost of capital — it adds value.
+        </div>
+        <div class="prof-badge prof-rel">
+          <div class="prof-type">Relative Profitability</div>
+          When choosing between projects, select the one with the <strong>higher NPV</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- NPV WORKED EXAMPLE -->
+    <div class="worked-example fade-in">
+      <div class="we-header">
+        <div class="we-badge">Worked Example</div>
+        <div class="we-title">NPV Calculation — Projects A &amp; B (from class)</div>
+      </div>
+      <div class="we-body">
+        <p style="margin-bottom:16px; font-size:14px; color:var(--text-dim);">This is the exact type of question she hinted at. Understand <em>every step</em> — she will change the numbers but the process is identical.</p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Identify the given information</div>
+              <div class="step-body">
+                <div class="compare-grid">
+                  <div class="compare-card">
+                    <h4 style="color:var(--gold-light);">Project A</h4>
+                    <div style="font-size:13px; font-family:'JetBrains Mono',monospace; line-height:2;">
+                      I₀ = €100,000<br>
+                      i  = 8%  →  q = 1.08<br>
+                      Life (T) = 5 years<br>
+                      LV = €5,000 at year 5
+                    </div>
+                  </div>
+                  <div class="compare-card">
+                    <h4 style="color:var(--blue);">Project B</h4>
+                    <div style="font-size:13px; font-family:'JetBrains Mono',monospace; line-height:2;">
+                      I₀ = €60,000<br>
+                      i  = 8%  →  q = 1.08<br>
+                      Life (T) = 4 years<br>
+                      LV = none stated
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Set up the cash flow timeline — Project A</div>
+              <div class="step-body">
+                <p style="font-size:13px; margin-bottom:14px;">Each period's cash flow is discounted back to today. The initial investment (I₀) is already at t=0, so it needs no discounting — it is simply subtracted.</p>
+                <div class="npv-visual">
+                  <div class="npv-timeline">
+                    <div class="npv-period">
+                      <div class="npv-t">t = 0</div>
+                      <div class="npv-cf outflow">−€100,000<br><small>Initial Invest.</small></div>
+                      <div class="npv-disc">No discount</div>
+                    </div>
+                    <div class="npv-period">
+                      <div class="npv-t">t = 1</div>
+                      <div class="npv-cf inflow">+€28,000<br><small>NCF₁</small></div>
+                      <div class="npv-disc">× 1.08⁻¹</div>
+                    </div>
+                    <div class="npv-period">
+                      <div class="npv-t">t = 2</div>
+                      <div class="npv-cf inflow">+€30,000<br><small>NCF₂</small></div>
+                      <div class="npv-disc">× 1.08⁻²</div>
+                    </div>
+                    <div class="npv-period">
+                      <div class="npv-t">t = 3</div>
+                      <div class="npv-cf inflow">+€35,000<br><small>NCF₃</small></div>
+                      <div class="npv-disc">× 1.08⁻³</div>
+                    </div>
+                    <div class="npv-period">
+                      <div class="npv-t">t = 4</div>
+                      <div class="npv-cf inflow">+€32,000<br><small>NCF₄</small></div>
+                      <div class="npv-disc">× 1.08⁻⁴</div>
+                    </div>
+                    <div class="npv-period">
+                      <div class="npv-t">t = 5</div>
+                      <div class="npv-cf inflow">+€30,000<br><small>NCF₅</small></div>
+                      <div class="npv-cf lv" style="margin-top:4px;">+€5,000<br><small>LV</small></div>
+                      <div class="npv-disc">× 1.08⁻⁵</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="highlight highlight-gold" style="font-size:13px;">
+                  <strong>Key understanding:</strong> The discounting factor (1+i)⁻ᵗ shrinks each future cash flow to express it in <em>today's money</em>. A €30,000 payment in year 5 is worth less than €30,000 today because money today can earn interest.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">Calculate each discounted cash flow — Project A</div>
+              <div class="step-body">
+                <div class="cf-table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Period (t)</th>
+                        <th>NCF (€)</th>
+                        <th>Discount Factor (1.08)⁻ᵗ</th>
+                        <th>PV of NCF (€)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>0 (I₀)</td>
+                        <td class="td-negative">−100,000</td>
+                        <td>1.0000</td>
+                        <td class="td-negative">−100,000.00</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td class="td-positive">+28,000</td>
+                        <td>1.08⁻¹ = 0.9259</td>
+                        <td class="td-positive">+25,925.93</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td class="td-positive">+30,000</td>
+                        <td>1.08⁻² = 0.8573</td>
+                        <td class="td-positive">+25,720.16</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td class="td-positive">+35,000</td>
+                        <td>1.08⁻³ = 0.7938</td>
+                        <td class="td-positive">+27,784.13</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td class="td-positive">+32,000</td>
+                        <td>1.08⁻⁴ = 0.7350</td>
+                        <td class="td-positive">+23,520.96</td>
+                      </tr>
+                      <tr>
+                        <td>5 (NCF)</td>
+                        <td class="td-positive">+30,000</td>
+                        <td>1.08⁻⁵ = 0.6806</td>
+                        <td class="td-positive">+20,418.35</td>
+                      </tr>
+                      <tr>
+                        <td>5 (LV)</td>
+                        <td class="td-positive">+5,000</td>
+                        <td>1.08⁻⁵ = 0.6806</td>
+                        <td class="td-positive">+3,402.92</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" style="text-align:right; font-weight:700; color:var(--cream);">NPV<sub>A</sub> =</td>
+                        <td class="td-total">+€26,772.45</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="highlight highlight-green">
+                  <strong>Interpretation:</strong> NPV<sub>A</sub> = +€26,772 → <span class="green">Positive</span>, therefore Project A is <strong>absolutely profitable</strong>. It generates €26,772 more in today's money than it costs.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-label">Interpret the result economically</div>
+              <div class="step-body">
+                <p>A positive NPV does not just mean "profitable." It means the investor could <strong>borrow the NPV amount right now</strong> (a consumption loan of ~€26,772) and repay it entirely from the project's future cash surpluses — without any personal loss. This is the economic power of a positive NPV.</p>
+                <div class="highlight highlight-blue">
+                  <strong>For relative profitability (choosing between projects):</strong> Compare the NPVs. NPV<sub>A</sub> ≈ €26,772 vs NPV<sub>B</sub> ≈ €25,469. Since NPV<sub>A</sub> &gt; NPV<sub>B</sub>, Project A is relatively preferred — but only if they have the same economic life. If different lives, use the Annuity method.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASSESSING NPV -->
+        <div class="divider"></div>
+        <h3 style="margin-top:0;">Strengths &amp; Weaknesses of NPV (common essay component)</h3>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h4 style="color:var(--green);">✅ Strengths</h4>
+            <ul class="styled-list">
+              <li>Widely known and used</li>
+              <li>Accounts for time value of money</li>
+              <li>Considers all cash flows over project life</li>
+              <li>Relatively low computational effort</li>
+              <li>Clear decision rule (NPV &gt; 0 = accept)</li>
+            </ul>
+          </div>
+          <div class="compare-card">
+            <h4 style="color:var(--red);">❌ Weaknesses / Limiting Assumptions</h4>
+            <ul class="styled-list">
+              <li>All data assumed to be certain — unrealistic</li>
+              <li>Requires a perfect capital market (borrow/invest at same rate, unlimited)</li>
+              <li>Economic life must be pre-determined</li>
+              <li>Assumes reinvestment of surpluses at the discount rate</li>
+              <li>Single target measure may be inadequate</li>
+              <li>Cash flows may not be allocable to clean periods</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANNUITY METHOD -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-gold">🔁</div>The Annuity Method</div>
+      <div class="def">
+        An <strong>annuity</strong> is a series of equal cash flows over equal time periods. The Annuity Method converts the NPV into an equivalent annual amount — making comparison between projects of different lives fair and easy.
+      </div>
+
+      <div class="formula-box">
+        <div class="label">Annuity Formula (Capital Recovery Factor)</div>
+        ANN = NPV  ×  [ (1+i)ᵀ × i  ]  /  [ (1+i)ᵀ − 1 ]
+        <br><br>
+        Where ANN = Annual equivalent value of the project<br>
+        The term in brackets is the <strong>Capital Recovery Factor (CRF)</strong>
+      </div>
+
+      <div class="rule-box">
+        <div class="rule-icon">🎯</div>
+        <div class="rule-text"><strong>When to use Annuity over NPV:</strong> Use the Annuity method when comparing projects with <em>different economic lives</em>, OR when a project repeats identically and indefinitely (since no NPV can be determined for infinite time horizons).</div>
+      </div>
+    </div>
+
+    <!-- ANNUITY WORKED EXAMPLE -->
+    <div class="worked-example fade-in">
+      <div class="we-header">
+        <div class="we-badge">Worked Example</div>
+        <div class="we-title">Annuity Calculation — Projects A &amp; B (5yr vs 4yr lives)</div>
+      </div>
+      <div class="we-body">
+        <p style="font-size:14px; margin-bottom:18px; color:var(--text-dim);">Because Project A runs 5 years and Project B runs 4 years, we cannot fairly compare their NPVs directly. The Annuity (annual equivalent value) creates a level playing field.</p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Apply the Capital Recovery Factor to each project's NPV</div>
+              <div class="step-body">
+                <div class="formula-box" style="margin:10px 0;">
+                  ANN<sub>A</sub> = €26,771.59  ×  [ (1.08)⁵ × 0.08 ]  /  [ (1.08)⁵ − 1 ]
+                  <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = €26,771.59  ×  [ 1.4693 × 0.08 ]  /  [ 1.4693 − 1 ]
+                  <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = €26,771.59  ×  0.11746 / 0.46933
+                  <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = €26,771.59  ×  0.25046
+                  <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <strong style="color:var(--gold-light);">€6,705.15 per year</strong>
+                </div>
+                <div class="formula-box" style="margin:10px 0;">
+                  ANN<sub>B</sub> = €25,469.32  ×  [ (1.08)⁴ × 0.08 ]  /  [ (1.08)⁴ − 1 ]
+                  <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = €25,469.32  ×  0.30192
+                  <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <strong style="color:var(--gold-light);">€7,689.72 per year</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Interpret — which project is better?</div>
+              <div class="step-body">
+                <div class="highlight highlight-gold">
+                  <strong>ANN<sub>B</sub> (€7,690) &gt; ANN<sub>A</sub> (€6,705)</strong> → Project B is relatively more profitable on an annualized basis. Even though Project A had a higher raw NPV, Project B generates more value per year, which matters when you assume the projects can be repeated.
+                </div>
+                <p style="font-size:13.5px; margin-top:12px;">This reversal is the entire reason the annuity method exists — NPV alone can mislead when project lives differ.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">Bonus: Infinite Repetition Case</div>
+              <div class="step-body">
+                <p style="font-size:13.5px;">If the project repeats identically and indefinitely, we cannot sum an infinite NPV series. Instead:</p>
+                <div class="formula-box">
+                  NPV (infinite chain) = ANN / i
+                  <br><br>
+                  NPV<sub>A∞</sub> = €6,705.15 / 0.08 = €83,814
+                  <br>
+                  NPV<sub>B∞</sub> = €7,689.72 / 0.08 = <strong style="color:var(--gold-light);">€96,122</strong>  ← B wins decisively
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prof-pair">
+          <div class="prof-badge prof-abs">
+            <div class="prof-type">Absolute Profitability</div>
+            Annuity &gt; 0 → accept the project
+          </div>
+          <div class="prof-badge prof-rel">
+            <div class="prof-type">Relative Profitability</div>
+            Higher annuity = better project (especially across different lives)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DYNAMIC PAYBACK PERIOD -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-blue">⏳</div>Dynamic Payback Period (DPP)</div>
+      <div class="def">
+        The DPP is the <strong>number of periods needed for discounted net cash inflows to fully recover the initial investment.</strong> It is the discounted version of the simple payback period — it uses present values, not raw cash flows.
+      </div>
+
+      <div class="formula-box">
+        <div class="label">DPP Method — How it works</div>
+        1. Calculate the cumulative NPV at the end of each period.<br>
+        2. The period in which cumulative NPV = 0 is the DPP.<br>
+        3. If cumulative NPV is still negative → investment not yet recovered.<br>
+        4. If cumulative NPV turns zero or positive → DPP achieved.
+      </div>
+
+      <div class="worked-example" style="margin-top:20px;">
+        <div class="we-header">
+          <div class="we-badge">Concept Example</div>
+          <div class="we-title">DPP — Tracking Cumulative Discounted Cash Flow</div>
+        </div>
+        <div class="we-body">
+          <p style="font-size:13.5px; margin-bottom:14px;">Using Project A data (I₀ = €100,000, i = 8%):</p>
+          <div class="cf-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>NCF (€)</th>
+                  <th>PV of NCF (€)</th>
+                  <th>Cumulative NPV (€)</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td class="td-negative">−100,000</td><td class="td-negative">−100,000</td><td class="td-negative">−100,000</td><td>❌ Not recovered</td></tr>
+                <tr><td>1</td><td class="td-positive">+28,000</td><td class="td-positive">+25,926</td><td class="td-negative">−74,074</td><td>❌</td></tr>
+                <tr><td>2</td><td class="td-positive">+30,000</td><td class="td-positive">+25,720</td><td class="td-negative">−48,354</td><td>❌</td></tr>
+                <tr><td>3</td><td class="td-positive">+35,000</td><td class="td-positive">+27,784</td><td class="td-negative">−20,570</td><td>❌</td></tr>
+                <tr><td>4</td><td class="td-positive">+32,000</td><td class="td-positive">+23,521</td><td class="td-positive">+2,951</td><td>✅ DPP achieved!</td></tr>
+                <tr><td>5</td><td class="td-positive">+35,000</td><td class="td-positive">+23,821</td><td class="td-total">+26,772</td><td>Final NPV</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="highlight highlight-blue" style="margin-top:12px;">
+            The DPP is reached <strong>during year 4</strong> — that is when the cumulative discounted cash flows first turn positive, recovering the full initial investment.
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-grid" style="margin-top:16px;">
+        <div class="compare-card">
+          <h4 style="color:var(--green);">✅ Advantage over Simple Payback</h4>
+          <p style="font-size:13px;">Uses discounted (present value) cash flows, so it correctly accounts for the time value of money — unlike the static payback period.</p>
+        </div>
+        <div class="compare-card">
+          <h4 style="color:var(--red);">❌ Key Limitation</h4>
+          <p style="font-size:13px;">Ignores all cash flows <em>after</em> the DPP is reached. A project with massive late-period gains could be rejected. Therefore, it is a <strong>risk measure, not a standalone profitability criterion.</strong></p>
+        </div>
+      </div>
+
+      <div class="rule-box" style="margin-top:14px;">
+        <div class="rule-icon">📌</div>
+        <div class="rule-text"><strong>Special case:</strong> DPP gives the same result as NPV for absolute profitability <em>only</em> when the designated payback limit equals the economic life of the project.</div>
+      </div>
+    </div>
+
+    <!-- IRR -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-purple">📈</div>Internal Rate of Return (IRR)</div>
+      <div class="def">
+        The IRR is the <strong>discount rate that makes the NPV of a project equal to zero.</strong> It represents the rate of return earned on capital employed by the investment.
+      </div>
+      <div class="formula-box">
+        <div class="label">Definition</div>
+        Solve for  r*  such that:
+        <br>
+        NPV = −I₀  +  Σ [NCFₜ × (1 + r*)⁻ᵗ]  +  [LV × (1 + r*)⁻ᵀ]  =  0
+      </div>
+      <div class="prof-pair">
+        <div class="prof-badge prof-abs">
+          <div class="prof-type">Absolute Profitability</div>
+          Accept if IRR &gt; uniform discount rate (i)
+        </div>
+        <div class="prof-badge prof-rel">
+          <div class="prof-type">Relative Profitability</div>
+          Choose project with higher IRR
+        </div>
+      </div>
+      <div class="highlight highlight-red" style="margin-top:14px;">
+        <strong>⚠️ Critical Weakness — The Reinvestment Assumption:</strong> The IRR method assumes all surplus cash flows can be reinvested at <em>exactly</em> the IRR rate. This is generally unrealistic. When projects differ in scale or economic life, the IRR can give misleading relative profitability rankings — a smaller project with lower capital tie-up often "wins" under IRR, even if the NPV comparison would favor the larger project.
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- LECTURE 5 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="section fade-in" id="lec5">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div>
+        <div class="section-title">Risk, Uncertainty &amp; Sensitivity Analysis</div>
+        <div class="section-tag tag-high">Lecture 5 · 1 Question Expected · Sensitivity Explicitly Hinted</div>
+      </div>
+    </div>
+
+    <div class="exam-alert" style="background:rgba(224,112,112,0.07); border-color:rgba(224,112,112,0.3);">
+      <div class="exam-alert-icon">🎯</div>
+      <div class="exam-alert-text">Last year used Lecture 5's Decision Tree and Simulation. Your lecturer explicitly said: <strong>"put a little more focus on sensitivity and breakeven analysis."</strong> She also said to understand decision rules for known and unknown probabilities (Maximin, Maximax, Hurwicz, Bayes) — none of those appeared last year. The WACC and Certainty Equivalent are also untouched.
+      </div>
+    </div>
+
+    <!-- Decision Rules UNKNOWN -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-red">❓</div>Decision Rules — Unknown Probabilities</div>
+      <p>When you <em>cannot</em> estimate the probability of each scenario, use these rules. They work on a <strong>Decision Matrix</strong> where rows = alternatives (Aⱼ) and columns = scenarios (Sᵤ).</p>
+
+      <div class="matrix-container">
+        <div class="matrix-label">Example Decision Matrix (NPV in $000s)</div>
+        <div class="cf-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Alternative</th><th>S₁</th><th>S₂</th><th>S₃</th><th>S₄</th><th>S₅</th><th>Min (Maximin)</th><th>Max (Maximax)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A₁</td><td>100</td><td>200</td><td>300</td><td>50</td><td>−50</td><td class="td-negative">−50</td><td class="td-positive">300</td></tr>
+              <tr><td class="td-highlight">A₂</td><td>115</td><td>180</td><td>150</td><td>115</td><td>115</td><td class="td-total">115 ← MAX</td><td>180</td></tr>
+              <tr><td>A₃</td><td>0</td><td>250</td><td>400</td><td>−100</td><td>200</td><td class="td-negative">−100</td><td class="td-positive">400 ← MAX</td></tr>
+              <tr><td>A₄</td><td>80</td><td>90</td><td>60</td><td>70</td><td>50</td><td>50</td><td>90</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3>① Maximin Rule — The Pessimist's Choice</h3>
+      <div class="def">Find the <strong>minimum NPV in each row</strong> (worst case for each alternative), then <strong>select the alternative with the highest minimum</strong>. You are maximizing your worst-case outcome.</div>
+      <div class="highlight highlight-red">
+        From the matrix: The row minima are −50, <strong>115</strong>, −100, 50. The maximum of these is <strong>115 → Select A₂</strong>.
+        <br><br><strong>Who uses this?</strong> A highly risk-averse investor who assumes the worst will always happen.
+        <br><strong>Weakness:</strong> Only looks at one scenario per alternative. Ignores the possibility of great outcomes.
+      </div>
+
+      <h3>② Maximax Rule — The Optimist's Choice</h3>
+      <div class="def">Find the <strong>maximum NPV in each row</strong> (best case), then <strong>select the alternative with the highest maximum</strong>. You are chasing the best possible outcome.</div>
+      <div class="highlight highlight-green">
+        From the matrix: The row maxima are 300, 180, <strong>400</strong>, 90. The maximum is <strong>400 → Select A₃</strong>.
+        <br><br><strong>Weakness:</strong> Completely ignores risk. A₃'s worst case is −100, which could be catastrophic.
+      </div>
+
+      <h3>③ Hurwicz Rule — The Balanced Choice (Optimism-Pessimism Rule)</h3>
+      <div class="def">A weighted combination of Maximin and Maximax using an <strong>optimism coefficient α</strong> (between 0 and 1).
+        <br><br>
+        <span class="mono">Hurwicz Score = α × (row maximum) + (1−α) × (row minimum)</span>
+        <br><br>
+        α = 1 → pure Maximax. α = 0 → pure Maximin.
+      </div>
+      <div class="worked-example" style="margin-top:14px;">
+        <div class="we-header"><div class="we-badge">Example</div><div class="we-title">Hurwicz with α = 0.4</div></div>
+        <div class="we-body">
+          <div class="cf-table-wrap">
+            <table>
+              <thead><tr><th>Alternative</th><th>Max</th><th>Min</th><th>Score = 0.4×Max + 0.6×Min</th></tr></thead>
+              <tbody>
+                <tr><td class="td-highlight">A₁</td><td>300</td><td>−50</td><td class="td-total">0.4(300)+0.6(−50) = 120−30 = <strong>90</strong> ← Highest</td></tr>
+                <tr><td>A₂</td><td>180</td><td>115</td><td>0.4(180)+0.6(115) = 72+69 = 141</td></tr>
+                <tr><td>A₃</td><td>400</td><td>−100</td><td>0.4(400)+0.6(−100) = 160−60 = 100</td></tr>
+                <tr><td>A₄</td><td>90</td><td>50</td><td>0.4(90)+0.6(50) = 36+30 = 66</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="highlight highlight-gold" style="margin-top:12px;">With α = 0.4, <strong>A₁ scores highest (141) → Select A₁</strong>. Note how the choice changes based on α — this is the method's flexibility and also its challenge (α is subjective).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BAYES -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-green">📊</div>Decision Rules — Known Probabilities (Bayes Rule)</div>
+      <div class="def">
+        When you <em>can</em> estimate the probability of each scenario, use the <strong>expected value</strong>. For each alternative, multiply each NPV by its probability and sum the results.
+        <br><br>
+        <span class="mono">E(Aⱼ) = Σ [ NPVⱼᵤ × pᵤ ]</span>
+        <br><br>
+        Select the alternative with the <strong>highest expected value</strong>.
+      </div>
+      <div class="worked-example" style="margin-top:14px;">
+        <div class="we-header"><div class="we-badge">Example</div><div class="we-title">Bayes Expected Value Calculation</div></div>
+        <div class="we-body">
+          <p style="font-size:13.5px; margin-bottom:12px;">Suppose three alternatives with two scenarios: S₁ (p=0.6) and S₂ (p=0.4)</p>
+          <div class="cf-table-wrap">
+            <table>
+              <thead><tr><th>Alternative</th><th>NPV under S₁ (p=0.6)</th><th>NPV under S₂ (p=0.4)</th><th>E(A) = Σ NPV×p</th></tr></thead>
+              <tbody>
+                <tr><td>A₁</td><td>$200</td><td>$50</td><td>0.6(200)+0.4(50) = 120+20 = <strong>$140</strong></td></tr>
+                <tr><td class="td-highlight">A₂</td><td>$150</td><td>$180</td><td>0.6(150)+0.4(180) = 90+72 = <strong class="td-total">$162 ← Select</strong></td></tr>
+                <tr><td>A₃</td><td>$300</td><td>−$100</td><td>0.6(300)+0.4(−100) = 180−40 = <strong>$140</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="highlight highlight-gold" style="margin-top:12px;"><strong>Select A₂</strong> with E(A₂) = $162. <br><br><strong>Assumption:</strong> Bayes rule assumes a risk-neutral attitude — that utility is proportional to monetary value. It ignores the spread/variance of outcomes.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SENSITIVITY & BREAKEVEN -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-gold">🔍</div>Sensitivity &amp; Breakeven Analysis <span style="font-size:11px; color:var(--red); font-family:'Source Sans 3',sans-serif; font-weight:600; margin-left:8px;">★ Explicitly Hinted</span></div>
+
+      <div class="def">
+        <strong>Sensitivity Analysis:</strong> Systematically change the value of one forecasted variable at a time and observe the resulting change in NPV. Variables that cause large NPV changes are called <strong>sensitive variables</strong>.
+        <br><br>
+        <strong>Breakeven Analysis:</strong> Find the specific value of a variable that gives the project an NPV of exactly <strong>zero</strong> — the breakeven point. Variables are often called breakeven values.
+      </div>
+
+      <h3>The Process</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Identify Variables Likely to Impact NPV</div>
+            <div class="step-body">Examples: unit selling price, sales volume, operating costs, project life, discount rate, initial investment. Choose variables based on degree of management control and confidence in forecasts.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Develop Optimistic, Base, and Pessimistic Estimates</div>
+            <div class="step-body">
+              <div class="cf-table-wrap">
+                <table>
+                  <thead><tr><th>Forecast Type</th><th>Also Called</th><th>NPV Result</th></tr></thead>
+                  <tbody>
+                    <tr><td>Optimistic</td><td>"Best case"</td><td class="td-positive">Highest NPV</td></tr>
+                    <tr><td>Most Likely</td><td>"Base case"</td><td>Middle NPV</td></tr>
+                    <tr><td>Pessimistic</td><td>"Worst case"</td><td class="td-negative">Lowest NPV</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Rank Variables by Monetary Impact on NPV</div>
+            <div class="step-body">
+              <p style="font-size:13.5px; margin-bottom:12px;">The wider the NPV range caused by a variable, the more sensitive (and risky) that variable is.</p>
+              <div class="sensitivity-bar-wrap">
+                <div class="sens-row">
+                  <div class="sens-label">Selling Price</div>
+                  <div class="sens-track">
+                    <div class="sens-fill" style="width:90%; background: linear-gradient(90deg, var(--red), #c85050);">NPV range: −$80K to +$95K</div>
+                  </div>
+                  <div class="sens-impact">HIGH RISK</div>
+                </div>
+                <div class="sens-row">
+                  <div class="sens-label">Sales Volume</div>
+                  <div class="sens-track">
+                    <div class="sens-fill" style="width:70%; background: linear-gradient(90deg, #c8843a, #c87a30);">NPV range: −$40K to +$65K</div>
+                  </div>
+                  <div class="sens-impact">MED-HIGH</div>
+                </div>
+                <div class="sens-row">
+                  <div class="sens-label">Operating Costs</div>
+                  <div class="sens-track">
+                    <div class="sens-fill" style="width:45%; background: linear-gradient(90deg, var(--blue), #4a7bc5);">NPV range: $10K to $48K</div>
+                  </div>
+                  <div class="sens-impact">MEDIUM</div>
+                </div>
+                <div class="sens-row">
+                  <div class="sens-label">Discount Rate</div>
+                  <div class="sens-track">
+                    <div class="sens-fill" style="width:25%; background: linear-gradient(90deg, var(--green), #4aa876);">NPV range: $25K to $38K</div>
+                  </div>
+                  <div class="sens-impact">LOW</div>
+                </div>
+              </div>
+              <p style="font-size:12.5px; color:var(--text-dim);">Selling Price has the widest NPV range → most sensitive → management should investigate this most carefully.</p>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-label">Use Results for Decision-Making</div>
+            <div class="step-body">
+              <div class="compare-grid">
+                <div class="compare-card">
+                  <h4 style="color:var(--blue);">Ex Ante (Planning Phase)</h4>
+                  <p style="font-size:13px;">Better forecasts are developed for sensitive variables. If too risky, abandon the project before committing resources.</p>
+                </div>
+                <div class="compare-card">
+                  <h4 style="color:var(--green);">Ex Post (Execution Phase)</h4>
+                  <p style="font-size:13px;">Management monitors sensitive variables during the project. Poor performance triggers early abandonment or sale.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-grid" style="margin-top:16px;">
+        <div class="compare-card">
+          <h4 style="color:var(--green);">✅ Strengths</h4>
+          <ul class="styled-list">
+            <li>Easy to understand and explain</li>
+            <li>Forces planning discipline</li>
+            <li>Highlights the riskiest variables</li>
+            <li>Relatively cheap to perform</li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <h4 style="color:var(--red);">❌ Weaknesses</h4>
+          <ul class="styled-list">
+            <li>Relatively unsophisticated</li>
+            <li>Only changes one variable at a time</li>
+            <li>Ignores interdependencies between variables</li>
+            <li>May not capture all information</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WACC & Risk Adjusted Rate -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-purple">💹</div>Risk-Adjusted Discount Rate &amp; WACC</div>
+      <div class="def">
+        Risk in project analysis = <strong>variation in future cash flows</strong> around an expected value. One way to handle this is to use a <strong>higher discount rate</strong> that includes a risk premium.
+      </div>
+
+      <div class="formula-box">
+        <div class="label">Risky Discount Rate</div>
+        k = r + u + a
+        <br><br>
+        r = risk-free rate (time value of money)<br>
+        u = average risk premium (firm's general business risk)<br>
+        a = additional factor (positive, zero, or negative) for<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this project's risk relative to the firm's average risk
+      </div>
+
+      <h3>Calculating WACC</h3>
+      <div class="def">The Weighted Average Cost of Capital (WACC) is the overall rate of return required to satisfy all suppliers of capital. It can be used as the risky discount rate k.</div>
+
+      <div class="worked-example" style="margin-top:14px;">
+        <div class="we-header"><div class="we-badge">Worked Example</div><div class="we-title">WACC Calculation (from class)</div></div>
+        <div class="we-body">
+          <div class="cf-table-wrap">
+            <table>
+              <thead><tr><th>Capital Source</th><th>Weight</th><th>Required Return</th><th>After-Tax Rate</th><th>Weighted Cost</th></tr></thead>
+              <tbody>
+                <tr><td>Common Stock</td><td>50%</td><td>10%</td><td>10%</td><td class="td-highlight">0.50 × 0.10 = 0.050</td></tr>
+                <tr><td>Preferred Stock</td><td>10%</td><td>8%</td><td>8%</td><td class="td-highlight">0.10 × 0.08 = 0.008</td></tr>
+                <tr><td>Long-Term Debt</td><td>40%</td><td>7% (pre-tax)</td><td>7%(1−0.30) = 4.9%</td><td class="td-highlight">0.40 × 0.049 = 0.0196</td></tr>
+                <tr><td colspan="4" style="text-align:right; font-weight:700;">WACC =</td><td class="td-total">7.76%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="highlight highlight-gold" style="margin-top:12px;">
+            <strong>Note the tax adjustment on debt:</strong> Interest on debt is tax-deductible, so its real cost to the firm is reduced. The after-tax cost = pre-tax rate × (1 − tax rate). Equity has no such adjustment.
+          </div>
+        </div>
+      </div>
+
+      <h3>Certainty Equivalent Method</h3>
+      <div class="def">Instead of adjusting the discount rate, adjust the <strong>cash flows themselves</strong> to their "certain" equivalent, then discount at the risk-free rate.
+        <br><br>
+        <span class="mono">NPV = Σ [ b × CF_t / (1+r)ᵗ ] − C₀</span>
+        <br><br>
+        Where <strong>b</strong> = certainty coefficient (set by management, between 0 and 1). A lower b means greater uncertainty — the cash flow is adjusted downward to reflect risk.
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- LECTURE 9 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="section fade-in" id="lec9">
+    <div class="section-header">
+      <div class="section-num">09</div>
+      <div>
+        <div class="section-title">Cost-Benefit Analysis (CBA)</div>
+        <div class="section-tag tag-high">Lecture 9 · 1 Question Expected · Completely Untouched Last Year</div>
+      </div>
+    </div>
+
+    <div class="exam-alert" style="background:rgba(92,184,138,0.07); border-color:rgba(92,184,138,0.3);">
+      <div class="exam-alert-icon">🌟</div>
+      <div class="exam-alert-text">Nothing from Lecture 9 appeared last year. The entire lecture is fair game. Based on lecture content: the <strong>Guardian / Spender / Society perspectives</strong>, the <strong>9 steps of CBA</strong>, the <strong>types of CBA (ex ante, ex post, in medias res)</strong>, and the <strong>difference between financial and economic analysis</strong> are all strong candidates. Her semi-example in the recording about "guardian, spender, society" may have been a genuine hint.
+      </div>
+    </div>
+
+    <!-- Financial vs Economic -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-gold">⚖️</div>Financial Analysis vs. Economic Analysis</div>
+      <div class="def">
+        Though both aim to appraise investment profitability, they differ fundamentally in scope and perspective.
+      </div>
+      <div class="cf-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Criteria</th><th>Financial Analysis</th><th>Economic Analysis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Focus</td><td>Profitability for <em>project owners</em></td><td>National economic interest</td></tr>
+            <tr><td>Costs</td><td>Only costs relevant to the project</td><td>Includes externalities &amp; economy-wide costs</td></tr>
+            <tr><td>Benefits</td><td>Only benefits to owners</td><td>Benefits to the national economy</td></tr>
+            <tr><td>Valuation</td><td>Market price</td><td>Willingness to pay &amp; opportunity costs</td></tr>
+            <tr><td>Coverage</td><td>Narrow</td><td>Broad</td></tr>
+            <tr><td>Viability</td><td>Financial viability only</td><td>Financial viability necessary but not sufficient</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight highlight-gold" style="margin-top:14px;">
+        <strong>Key Exam Point:</strong> A project can be financially viable (profitable to the owner) but not economically viable (if the social costs outweigh social benefits). Economic analysis is broader — it asks "is this good for society?"
+      </div>
+    </div>
+
+    <!-- CBA Definition -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-green">📋</div>What is Cost-Benefit Analysis?</div>
+      <div class="def">
+        CBA is a <strong>policy assessment method</strong> that quantifies the value of policy consequences in monetary terms to <em>all members of society</em>. It calculates <strong>Net Social Benefits (NSB)</strong> for each policy alternative:
+        <br><br>
+        <span class="mono">NSB = Social Benefits (B) − Social Costs (C)</span>
+        <br><br>
+        <strong>Decision Rule:</strong> Investments with positive net benefits are considered acceptable.
+      </div>
+      <p>CBA begins with a financial statement and makes two key adjustments:</p>
+      <ul class="styled-list">
+        <li>Certain costs and benefits are included or excluded (e.g., transfers between parties cancel out at the societal level)</li>
+        <li>The valuation of items changes from market prices to economic values (opportunity costs, willingness to pay)</li>
+      </ul>
+    </div>
+
+    <!-- Types of CBA -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-blue">🕐</div>Types of CBA — Know All Four</div>
+      <div class="cf-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Timing</th><th>Primary Use</th><th>Quality of Info</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-highlight">Ex Ante</td>
+              <td>Before the intervention</td>
+              <td>Resource allocation decisions — should we invest here?</td>
+              <td class="td-negative">Poorest (predictions only)</td>
+            </tr>
+            <tr>
+              <td class="td-highlight">In Medias Res</td>
+              <td>During the intervention</td>
+              <td>Redirect resources if needed; mid-course corrections</td>
+              <td>Moderate</td>
+            </tr>
+            <tr>
+              <td class="td-highlight">Ex Post</td>
+              <td>After the intervention</td>
+              <td>Learning actual project value; informing similar future projects</td>
+              <td class="td-positive">Best (actual outcomes known)</td>
+            </tr>
+            <tr>
+              <td class="td-highlight">Comparative</td>
+              <td>Ex ante vs. Ex post</td>
+              <td>Evaluate accuracy of ex ante predictions; understand forecast errors</td>
+              <td>Varies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rule-box">
+        <div class="rule-icon">💡</div>
+        <div class="rule-text"><strong>Key distinction to know:</strong> Ex Post is best for <em>learning</em> but "too late" for resource reallocation. Ex Ante is when you can actually <em>decide</em> — but it relies on uncertain predictions. In Medias Res is a compromise.</div>
+      </div>
+    </div>
+
+    <!-- 9 Steps -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-gold">🪜</div>The 9 Steps of CBA — Know the Order</div>
+      <div class="cba-steps">
+        <div class="cba-step" data-n="1">
+          <div class="cba-step-num">Step 1</div>
+          <div class="cba-step-title">Specify Alternatives</div>
+          <div class="cba-step-desc">Define the full set of alternative projects, including a "do nothing" option as baseline.</div>
+        </div>
+        <div class="cba-step" data-n="2">
+          <div class="cba-step-num">Step 2</div>
+          <div class="cba-step-title">Decide on Standing</div>
+          <div class="cba-step-desc">Determine whose costs and benefits count — local, national, or global perspective.</div>
+        </div>
+        <div class="cba-step" data-n="3">
+          <div class="cba-step-num">Step 3</div>
+          <div class="cba-step-title">Identify Impacts</div>
+          <div class="cba-step-desc">Catalogue all impact categories (economic, social, environmental) and select measurement indicators.</div>
+        </div>
+        <div class="cba-step" data-n="4">
+          <div class="cba-step-num">Step 4</div>
+          <div class="cba-step-title">Predict Impacts</div>
+          <div class="cba-step-desc">Forecast all impacts quantitatively over the entire project life.</div>
+        </div>
+        <div class="cba-step" data-n="5">
+          <div class="cba-step-num">Step 5</div>
+          <div class="cba-step-title">Monetize All Impacts</div>
+          <div class="cba-step-desc">Convert all impacts to monetary values (including non-market goods like lives saved, time saved).</div>
+        </div>
+        <div class="cba-step" data-n="6">
+          <div class="cba-step-num">Step 6</div>
+          <div class="cba-step-title">Discount to PV</div>
+          <div class="cba-step-desc">Discount all future benefits and costs to Present Values using the appropriate social discount rate.</div>
+        </div>
+        <div class="cba-step" data-n="7">
+          <div class="cba-step-num">Step 7</div>
+          <div class="cba-step-title">Compute Net PV</div>
+          <div class="cba-step-desc">Calculate NPV (or Net Social Benefit) for each alternative: NSB = PV(Benefits) − PV(Costs).</div>
+        </div>
+        <div class="cba-step" data-n="8">
+          <div class="cba-step-num">Step 8</div>
+          <div class="cba-step-title">Sensitivity Analysis</div>
+          <div class="cba-step-desc">Test how robust results are to changes in key assumptions — especially monetization values and the discount rate.</div>
+        </div>
+        <div class="cba-step" data-n="9">
+          <div class="cba-step-num">Step 9</div>
+          <div class="cba-step-title">Make a Recommendation</div>
+          <div class="cba-step-desc">Present findings and recommend the option with the highest positive Net Social Benefit.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSPECTIVES — GUARDIAN / SPENDER / SOCIETY -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-red">👥</div>Project Perspectives — Guardian, Spender &amp; Society</div>
+      <p>Different stakeholders evaluate the same project through very different lenses. Understanding these perspectives — and their biases — is critical for economic analysis.</p>
+
+      <div class="perspectives">
+        <div class="perspective-card persp-guardian">
+          <div class="persp-icon">🛡️</div>
+          <div class="persp-title">The Guardian</div>
+          <ul class="persp-list">
+            <li>Found in <strong>Central Budgetary Agencies</strong></li>
+            <li>Views projects through a <strong>revenue vs. expenditure</strong> lens</li>
+            <li>Revenue inflows = "benefits"; expenditure outflows = "costs"</li>
+            <li>Tends to regard CBA as naïve and impractical</li>
+            <li>Ignores non-financial social costs/benefits (time saved, lives, pollution)</li>
+            <li>Views government-owned resources as <em>free</em> (no opportunity cost)</li>
+            <li>Treats subsidies from other governments as "benefits" — incorrect under CBA</li>
+            <li>Prefers a <strong>high discount rate</strong> (similar to market rates)</li>
+            <li>Ignores costs not borne by own level of government</li>
+          </ul>
+        </div>
+
+        <div class="perspective-card persp-spender">
+          <div class="persp-icon">💸</div>
+          <div class="persp-title">The Spender</div>
+          <ul class="persp-list">
+            <li>Found in <strong>service or line departments</strong></li>
+            <li>Views expenditures on constituents as <em>"benefits"</em></li>
+            <li>Transfers received by constituents are called "benefits" — incorrect</li>
+            <li>Views worker wages as benefits (supports any project)</li>
+            <li>Government-owned resources have <em>no cost</em> in their view</li>
+            <li>Favors large, capital-intensive projects (harder to cancel)</li>
+            <li>Rejects market allocation principles</li>
+            <li>Prefers a <strong>low discount rate</strong> (raises NPV of their projects)</li>
+          </ul>
+        </div>
+
+        <div class="perspective-card persp-society">
+          <div class="persp-icon">🌍</div>
+          <div class="persp-title">Society</div>
+          <ul class="persp-list">
+            <li>The correct economic perspective — CBA represents this view</li>
+            <li>Two primary, equally-valued objectives:</li>
+            <li><strong>Growth Objective:</strong> Increase total national income</li>
+            <li><strong>Equity Objective:</strong> Improve the distribution of national income</li>
+            <li>Values all costs and benefits at opportunity cost / willingness to pay</li>
+            <li>Includes externalities (pollution, time saved, lives)</li>
+            <li>Uses the <strong>social discount rate</strong> (typically lower than market rates)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rule-box" style="margin-top:16px;">
+        <div class="rule-icon">⚠️</div>
+        <div class="rule-text">
+          <strong>Key Exam Contrast:</strong> The Guardian and Spender both misidentify costs and benefits in systematic ways.
+          <br>• The Guardian ignores social costs — making projects seem <em>cheaper</em> than they are.
+          <br>• The Spender inflates benefits — making projects seem <em>more valuable</em> than they are.
+          <br>• Society's perspective (CBA) corrects both biases by using opportunity costs and including all externalities.
+        </div>
+      </div>
+    </div>
+
+    <!-- CBA Issues -->
+    <div class="card fade-in">
+      <div class="card-title"><div class="icon icon-red">⚠️</div>Difficulties in Public Project CBA</div>
+      <ul class="styled-list">
+        <li>Identifying <strong>all users</strong> who can benefit from the project — some benefits are diffuse and hard to trace</li>
+        <li>Identifying <strong>all benefits and dis-benefits</strong> — many are non-market (environmental, social)</li>
+        <li>Quantifying non-market benefits and dis-benefits in <strong>dollar terms</strong> — e.g., how do you value a human life or a year without pollution?</li>
+        <li>Selecting an appropriate <strong>social discount rate</strong> — Guardians want it high (fewer projects pass), Spenders want it low (more projects pass)</li>
+      </ul>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  ECON 3056 · Project Evaluation · UWI St. Augustine · 2026 Exam Prep<br>
+  Built on the no-repeat analysis of the <span>2025 past paper</span>. Good luck on May 24th.
+</footer>
+
+<script>
+  // Intersection observer for fade-in
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Nav scroll
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Active nav on scroll
+  const sections = ['lec1','lec3','lec5','lec9'];
+  const btns = document.querySelectorAll('.nav-btn');
+  const sectionEls = sections.map(id => document.getElementById(id));
+
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    sectionEls.forEach((el, i) => {
+      if (window.scrollY >= el.offsetTop - 120) current = i;
+    });
+    btns.forEach((b, i) => b.classList.toggle('active', i === current));
+  });
+</script>
+</body>
+</html>
